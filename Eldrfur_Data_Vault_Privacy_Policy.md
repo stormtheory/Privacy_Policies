@@ -9,7 +9,7 @@ Last updated: June 21, 2026
 
 ## The Short Version
 
-Eldrfur Data Vault does not collect, transmit, sell, harvest, or share your personal data
+Eldrfur Data Vault does not collect or harvest, transmit, sell, or share your personal data
 with anyone, including the developer. Your vault and everything in it stays on
 your device unless you explicitly choose to back it up or sync it to your cloud storage
 provider you already own and control.
@@ -67,7 +67,8 @@ anywhere.
 
 ---
 
-> [!NOTE] References: Here and in follows there is terms and locations that vary 
+> [!NOTE] 
+> References: Here and in follows there is terms and locations that vary 
 > and to keep on the same page here is a list of terms:
 >
 > `vault.db` - Vault names vary from system to system and user to user. 
@@ -77,22 +78,24 @@ anywhere.
 
 ## Data Stored On Your Device(s)
 
-The following is stored locally on your device only and is never sent to the
-developer or any third party:
+The following is stored locally on your device only unless otherwise chosen and is never sent to the
+developer or any third party by the app it's self:
 
 ### Vault database (`vault.db`)
 
-Your encrypted entries: labels, usernames, passwords, notes, SSH keys, VPN
+This is a standard sqlite database framework file.
+Your encrypted entries includes but not limited to: labels, usernames, passwords, notes, SSH keys, VPN
 keys, passkeys, binary keys, and any other secrets you store. All credential
 fields are encrypted with AES-256-GCM before being written to disk. The
-database is a standard SQLite file. Entry labels are stored unencrypted to
-allow search without decryption; all other fields are encrypted.
+database is a standard SQLite file. Database is read and decrypted into RAM on your device.
 
 ### Vault location configuration
 
 Stored in app preferences on your device: which cloud storage provider you have configured
 (if any), your auto-sync preferences, and the local path to your vault file.
-Contains no credentials or secrets.
+Contains no credentials or secrets with exception of when using rclone and your configuration is encrypted.
+Eldrfur will encrypt your rclone's password with your masterpassword and store the secret 
+in it's config file locally.
 
 ### PIN unlock data (Flutter version, if you enable PIN unlock)
 
@@ -136,12 +139,15 @@ nothing from any of these flows.
 
 **What is sent to the cloud:** Only the `vault.db` file. Because all credential
 fields are encrypted before leaving your device, the provider receives an
-opaque binary file and cannot read its contents.
+opaque binary file and cannot read its contents. They just see the framework of 
+an sql database and some metadata.
 
-> [!NOTE] that we can not list of the possiable cloud providers you could 
-> connect to and all the different ways you can. We leave all this up to you as it's YOUR DATA
-> Here are a few as examples, but really our part is all the same for the most part. 
-> Cloud providers will only see a database file with encrypted data fields.
+> [!NOTE]
+> We can't list every possible cloud provider combination or connection method you could use. That choice is yours, since it's your data.
+> A few examples are given below, but our role stays largely the same regardless of which cloud provider you choose.
+> Eldrfur encrypts/decrypts your data and provide user controlled options.
+> Cloud providers only ever see a database file with encrypted data fields. 
+> Ultimately, it's the end user's responsibility to use trusted devices and staying current with their chosen service provider's policies.
 
 ### iCloud Drive (Flutter version: iOS and macOS only)
 
@@ -152,7 +158,7 @@ your existing Apple ID. No iCloud capability exists in the Java desktop
 version. This is all governed by 
 [Apple's Privacy Policy](https://www.apple.com/legal/privacy/).
 
-### Google Drive (both versions)
+### Google Drive (Flutter version: Android version only)
 
 Your vault.db is stored in the app's private `appDataFolder`, a hidden
 app-specific folder not visible in your main Google Drive view and not
@@ -180,38 +186,26 @@ involved. Governed by the privacy policy of whoever operates your Nextcloud
 instance (for self-hosted servers, that is you).
 [Nextcloud "All about privacy"](https://nextcloud.com/compliance/).
 
-### Microsoft OneDrive (both versions)
+### Proton Drive (All platforms)
 
-Your vault.db is stored in `/Apps/EldrfurVault/` in your OneDrive. This folder
-is visible to you in OneDrive but contains only the encrypted vault file. The
-app requests only the `Files.ReadWrite.AppFolder` scope, limiting access to
-this folder exclusively. Authentication uses MSAL OAuth 2.0 via your existing
-Microsoft account. Governed by
-[Microsoft's Privacy Policy](https://privacy.microsoft.com/).
-
-### Proton Drive (Flutter iOS version; both versions on desktop)
-
-Your vault.db is stored in an `EldrfurVault` folder on your Proton Drive. The
-app authenticates directly with Proton's servers using your existing Proton
-account, performing the login on-device via Proton's SRP protocol (your
+Your vault.db is stored in by default the `EldrfurVault` folder on your Proton Drive. 
+The app authenticates from your device to Proton's servers directly using your existing Proton
+account information, performing the login on-device via Proton's SRP protocol (your
 password is never sent to Proton; SRP proves knowledge of it without
 transmitting it). If Proton challenges the login with a human-verification
 (CAPTCHA) step, that challenge is presented in-app and solved by you; the app
 forwards only the resulting verification token. Two-factor authentication, if
 enabled on your account, is handled the same way.
 
-Once authenticated, the app lists the encrypted vault files in your
-`EldrfurVault` folder and lets you choose one to download, or uploads your
-current vault. Proton's own end-to-end encryption applies on top of the vault's
+Once authenticated, Proton's own end-to-end encryption applies on top of the vault's
 AES-256-GCM encryption, so on Proton Drive the file is encrypted twice before
-storage. Your Proton session tokens are held only in memory for the duration of
-the sync and are not written to the vault or shared with the developer.
-Governed by [Proton's Privacy Policy](https://proton.me/legal/privacy).
+storage. Your Proton session tokens are held on device and never shared with the developer.
+Proton Drive is governed by [Proton's Privacy Policy](https://proton.me/legal/privacy).
 
-Note: native Proton Drive sync is currently available in the Flutter iOS
-version. The Java desktop version's Proton support uses rclone. The app
-communicates directly with Proton's official API endpoints over HTTPS; no
-third-party server is involved.
+Note: native Proton Drive sync is currently available in the Flutter iOS and macOS
+versions. The Java desktop version's Proton support is with rclone on Linux 
+or Proton's Drive Client on Windows. The app communicates directly with Proton's 
+official API endpoints over HTTPS; no third-party server is involved.
 
 ---
 
@@ -302,9 +296,10 @@ second Argon2id-derived key before storing it in hardware-backed secure
 storage. The PIN itself is never stored anywhere. A self detructive Pin after so many fails.
 With an option of using biometrics for a more of a "two factor" approach.
 
-You are solely responsible for choosing a strong Master Password and keeping it
-secure. If you lose your Master Password, your vault data cannot be recovered
-by the developer or by anyone else without brute force.
+User is solely responsible for choosing a strong Master Password and keeping it
+secure. If user loses their Master Password, the user's vault data cannot be recovered
+by the developer or by anyone else without possible years of brute force. Users are also solely 
+responsible for choosing trusted devices and staying current with their chosen service provider's own policies.
 
 ---
 
@@ -318,9 +313,9 @@ This is an utility app and nothing more.
 
 ## Changes to This Policy
 
-If this policy changes in a way that affects how data is handled, the updated
-policy will be posted at this URL with a revised date. Any change that reduces
-privacy protections will be called out explicitly in the change notice.
+If this policy changes in a way that affects how currently released user data is handled, 
+outside of correcting a mistake in wording, the updated policy will be posted at this URL with a revised date. 
+Any change that reduces privacy protections will be called out explicitly in the change notice in a table to be created below.
 
 ---
 
