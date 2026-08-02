@@ -3,7 +3,7 @@
 **Eldrfur Data Vault**
 Developed by Azimos Labs, LLC
 Applies to: all versions and platforms (Java desktop, Flutter mobile/desktop)
-Last updated: June 21, 2026
+Last updated: August 2, 2026
 
 ---
 
@@ -20,14 +20,16 @@ provider you already own and control.
 
 This policy covers all releases of Eldrfur Data Vault:
 
-| Version                  | Platforms               | Status          |
-|--------------------------|-------------------------|-----------------|
-| Java desktop             | Windows, Linux (JDK 25) | Current release |
-| Flutter mobile/desktop   | iOS, macOS, Android     | Current Release |
+| Version                  | Platforms               | Status                                   |
+|--------------------------|-------------------------|------------------------------------------|
+| Java desktop             | Windows, Linux (JDK 25) | Still supported; updated less frequently |
+| Flutter mobile/desktop   | iOS, macOS, Android     | Current release                          |
 
-Both versions use the same vault file format, the same encryption scheme
-(AES-256-GCM + Argon2id), and the same SQLite database schema. This policy
-applies equally to both.
+The Java desktop version remains available and continues to receive updates,
+just on a slower cadence than the Flutter version. It is not discontinued or
+deprecated - it still uses the same vault file format, the same encryption
+scheme (AES-256-GCM + Argon2id), and the same SQLite database schema as the
+Flutter version, and this policy applies equally to both.
 
 ---
 
@@ -323,7 +325,7 @@ Any change that reduces privacy protections will be called out explicitly in the
 
 Questions about this privacy policy or the app's data practices:
 
-stormtheory@azimoslabs.com
+software_feedback_report@azimoslabs.com
 
 ---
 
@@ -343,3 +345,10 @@ and Google Play Store privacy disclosure screens.
 All data created in this app stays on the user's device or in cloud storage
 the user controls under their own account. The developer collects nothing,
 stores nothing server-side, and has no access to any user data.
+
+
+## Change Log
+| Date            | Changes                                                                                |
+|-----------------|----------------------------------------------------------------------------------------|
+| June 21, 2026   | Initial privacy policy (Pre-Release|Beta Version)                                      |
+| August 02, 2026 | Build 1 Release - Added change log table, no major changes to the privacy of the apps. |
