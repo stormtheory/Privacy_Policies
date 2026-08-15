@@ -2,17 +2,19 @@
 
 Developed by Azimos Labs, LLC
 Applies to: all versions and platforms (Flutter mobile/desktop)
-Last updated: August 14, 2026
+Last updated: August 15, 2026
 
 ---
 
 ## The Short Version
 
-Eldrfur Data Vault does not collect or harvest, transmit, sell, or share your personal data
-with anyone, including the developer. Your vault and everything in it stays on
-your device unless you explicitly choose to back it up or sync it to your cloud storage
-provider you already own and control.
+This app DOES NOT collect or harvest, transmit, sell, or share your personal data
+with anyone, including the developer. Your app and everything in it stays on
+your device unless you explicitly choose to. 
 
+> [!NOTE] 
+> Not personal data related, but worth noting. 
+> The only uncontrollable data connection that the interactive map's "Background Map" downloads from OpenStreetMap tile servers (openstreetmap.org).
 
 ---
 
@@ -21,15 +23,6 @@ provider you already own and control.
 Veteran Education Homeport (VetEduHP) is a free utility application built for student veterans, active duty servicemembers, military-connected students, and their dependents at any supported university. It helps students track semester checklist tasks, estimate VA housing benefits, navigate their school with an interactive map and find veteran resources.
 
 This privacy policy describes how the app handles user information. The short version: **we collect two pieces of information, we store nothing on any server, and we share nothing with anyone.**
-
----
-
-## The Short Version
-
-This app DOES NOT collect or harvest, transmit, sell, or share your personal data
-with anyone, including the developer. Your app and everything in it stays on
-your device unless you explicitly choose to back it up or sync it to your cloud storage
-provider you already own and control.
 
 ---
 
@@ -82,15 +75,6 @@ The app does not collect, access, or process any of the following:
 - Payment or financial information
 - Social network credentials
 
-## 1.6 Online Data Connections
-
-All versions of Veteran Education Homeport use one or more of the following connections:
-
-| Purpose            |Platform | Use                      | What and Where to                                                                                      |
-|--------------------|---------|--------------------------|--------------------------------------------------------------------------------------------------------|
-| App Update checking| iOS/Mac | optional, off by default | https encrypted file read connection to check what builds are available from Azimos Lab's web servers  |
-| App Update checking| Android | optional, off by default | communicates directly with Google Play to check for and download app updates                           |
-
 ---
 
 ## 2. How Data Is Stored
@@ -104,17 +88,19 @@ No backend server, database, cloud storage, or third-party data processor receiv
 
 ---
 
-## 3. Data Transmission
+## 3 Other Data Transmissions
 
 The app makes outbound network connections only in the following circumstances, all of which are initiated explicitly by the user:
 
-| Action | Destination | What is sent |
-|-------------------------------------------------------------|---------------------------|---------------------------------------------------------|
-| Tapping an external link (VA.gov, a school's website, etc.) | The linked website        | Nothing beyond what a standard browser request includes |
-| Tapping "Directions"                                        | Apple Maps or Google Maps | The destination address or GPS coordinates of the selected campus building, where a campus map is available |
-| Tapping "Call"                                              | The device's phone dialer | The phone number                                        |
-| Tapping "Email" or "Report an issue"                        | The device's mail app     | A pre-composed email draft opened for the user to review and send manually |
-| Loading the interactive campus map, where available         | OpenStreetMap tile servers (openstreetmap.org) | Tile coordinates only — no user identity or location data |
+| Action                                                      |Platform | Destination               | What is sent                                            |
+|-------------------------------------------------------------|---------|---------------------------|---------------------------------------------------------|
+| App Update checking                                         | iOS/Mac | Azimos Labs               | Nothing beyond what a standard browser request includes |
+| App Update checking                                         | Android | Google Play Store         | Nothing beyond what a standard browser request includes | 
+| Tapping an external link (VA.gov, a school's website, etc.) | All     | The linked website        | Nothing beyond what a standard browser request includes |
+| Tapping "Directions"                                        | All     | Apple Maps or Google Maps | The destination address or GPS coordinates of the selected campus building, where a campus map is available |
+| Tapping "Call"                                              | All     | The device's phone dialer | The phone number                                        |
+| Tapping "Email" or "Report an issue"                        | All     | The device's mail app     | A pre-composed email draft opened for the user to review and send manually |
+| Loading the interactive campus map, where available         | All     | OpenStreetMap tile servers (openstreetmap.org) | Tile coordinates only — no user identity or location data |
 
 The app does not make any background network requests. No data is transmitted without a direct user action.
 
@@ -229,7 +215,7 @@ Continued use of the app after a change constitutes acceptance of the revised po
 | Date            | Build | Changes                                                                                                               |
 |-----------------|-------|-----------------------------------------------------------------------------------------------------------------------|
 | August 04, 2026 |Beta   | Initial privacy policy (Pre-Release - Beta Version)                                                                   |
-| August 14, 2026 |1      | Build 1 Release - Added change log table, added a feature for checking and alerting that a newer version is available |
+| August 15, 2026 |1      | Build 1 Release - Added change log table, added a feature for checking and alerting that a newer version is available |
 
 ---
 
