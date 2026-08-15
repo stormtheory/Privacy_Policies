@@ -6,7 +6,7 @@ Developed by Azimos Labs, LLC
 
 Applies to: all versions and platforms (Java desktop, Flutter mobile/desktop)
 
-Last updated: August 13, 2026
+Last updated: August 15, 2026
 
 ---
 
@@ -79,8 +79,8 @@ All versions of Eldrfur Data Vault use one or more of the following connections:
 | Purpose            |Platform | Use                      | What and Where to                                                                                      |
 |--------------------|---------|--------------------------|--------------------------------------------------------------------------------------------------------|
 | Cloud Sync         | All     | optional, off by default | encrypted personal data, to personal cloud service providers                                           |
-| App Update checking| iOS/Mac | optional, off by default | https encrypted file read connection to check what builds are available from Azimos Lab's web servers  |
-| App Update checking| Android | optional, off by default | communicates directly with Google Play to check for and download app updates                           |
+| App Update checking| iOS/Mac | optional, off by default | Nothing beyond what a standard browser request includes, Azimos Labs  |
+| App Update checking| Android | optional, off by default | Nothing beyond what a standard browser request includes, Google Play Store                           |
 
 ---
 
@@ -226,12 +226,28 @@ official API endpoints over HTTPS; no third-party server is involved.
 
 ---
 
-## PDF Viewing (both versions)
+## PDF Viewing & Document/Key Export (both versions)
 
 If you store a PDF file in the vault and open it for viewing, the file is
 decrypted in memory on your device and displayed locally. No PDF content is
 transmitted anywhere. The Java version uses Apache PDFBox; the Flutter version
 uses the pdfx package. Both operate entirely offline.
+
+**Build 3 addition: exporting a document or a stored key file.** The Flutter
+version added an explicit Share/Export action - available on the document
+viewer and on "Binary Keys" entries - that lets you send a specific,
+individually-decrypted file to another app on your own device, or save it
+using your device's own file system, through Apple's standard native share
+sheet (the same system share menu every app on your device uses). This
+happens ONLY when you tap Share/Export yourself, for one item at a time - it
+is never automatic, and the destination (which app, or Save to Files) is
+always your own choice from your device's own share menu, never chosen by
+this app. A temporary copy of the file is written to your device's own
+private app storage only for the moment the share sheet is open, then
+overwritten with zeros and deleted immediately after - regardless of whether
+you completed the share or cancelled it. This is entirely on-device: nothing
+about what you exported, or that you exported anything, is sent to the
+developer or to any third party.
 
 ---
 
@@ -289,19 +305,8 @@ yourself, whoever you send it to) to read on-device.
 Every typeface the app uses (Cinzel, Cinzel Decorative, Source Serif 4,
 Source Code Pro) is a font file bundled directly inside the app at build
 time. They load from disk, the same as any other app asset - never from a
-network request, on any platform, on any build (debug or release), on first
-launch or any later launch. The app makes no request of any kind to Google,
-or to any other font provider, for any reason.
-
-CORRECTION (this policy previously said otherwise): an earlier version of
-this document described a Google Fonts network fetch that does not reflect
-this app's actual behavior - the fonts have been fully bundled as local
-assets this entire time, and the one remaining unused reference to the
-`google_fonts` package (kept only for a network-disabling settings flag it
-never needed) has been removed outright. That earlier wording was a
-documentation error, not a description of something the app ever did in
-this codebase; it is corrected here so this document matches the code
-exactly, not just in intent.
+network request, on any platform, on any build (debug or release) 
+The app makes no request of any kind to Google, or to any other font provider, for any reason.
 
 The Java desktop version does not use Google Fonts.
 
@@ -354,9 +359,18 @@ OAuth libraries for cloud providers when enabled.
 Argon2id implementation (ported from BouncyCastle, Apache 2.0; no third-party
 Argon2 package), sqlite3 (SQLite), flutter_secure_storage (hardware keychain),
 local_auth (biometric), icloud_storage (iCloud), http (Proton Drive API over
-HTTPS), pdfx (PDF rendering), file_selector and file_picker (local file
-selection), google_fonts (typography). Native Proton Drive support on iOS uses
-a small bundled Go-based bridge that talks to Proton's official API over HTTPS;
+HTTPS), pdfx (PDF rendering), file_selector (local file selection on macOS/
+desktop - iOS uses a small custom native channel instead of a third-party
+picker package, after the third-party file_picker plugin repeatedly broke
+the iOS build), share_plus (Build 3 addition - the native OS share sheet for
+the document/key export feature described in "PDF Viewing & Document/Key
+Export" above; operates entirely on-device, see that section). Fonts are
+bundled locally as font files at build time - no font-related network
+request of any kind, on any platform, on any build; there is no
+Google-Fonts-package dependency of any kind (removed entirely in Build 3 -
+see the Fonts section below for the full correction). Native Proton Drive
+support on iOS uses a small bundled Go-based bridge that talks to Proton's
+official API over HTTPS;
 it runs in-process and transmits nothing to the developer.
 
 **Android only, worth calling out separately:** Google Play's own In-App
@@ -398,7 +412,7 @@ your Master Password using Argon2id, a memory-hard algorithm designed to resist
 brute-force attacks. The Master Password is never stored in the vault database
 or anywhere on the device in plaintext.
 
-The Flutter version's PIN unlock feature wraps the Master Password with a
+The Flutter's version PIN unlock feature wraps the Master Password with a
 second Argon2id-derived key before storing it in hardware-backed secure
 storage. The PIN itself is never stored anywhere. A self destructive Pin after so many fails.
 With an option of using biometrics for a more of a "two factor" approach.
@@ -430,7 +444,7 @@ Any change that reduces privacy protections will be called out explicitly in the
 
 Questions about this privacy policy or the app's data practices:
 
-software_feedback_report@azimoslabs.com
+software_support@azimoslabs.com
 
 ---
 
@@ -468,5 +482,4 @@ though it does not change what this app collects.
 | August 02, 2026 |1      | Build 1 Release - Added change log table, no major changes to the privacy of the apps. |
 | August 13, 2026 |2      | Build 2 - <br> Disclosed three new on-device-only items introduced this build: <br>• (1) a non-secret vault display name stored in the shared AutoFill keychain group so the AutoFill setup screen can show which vault is configured, <br>• (2) the private `eldrfurvault://` URL scheme used only for an on-device hand-off from that screen into the app, <br>• (3) the existing opt-in AutoFill diagnostic log, described here for the first time even though the toggle itself predates this build. None of these transmit anything off-device; no protections were reduced. <br>• (4) Added a new "App Update Checks" section: once every 24 hours after unlock, the app requests a small static file over HTTPS to check for a newer version. No personal data, vault data, or user identifier is sent; OFF by default, toggleable in Settings. Nutrition-label answers unchanged - this is the same category of request as the existing Fonts section (a static-resource fetch with no data collected), not a new "data collected" item. |
 | - | - | <br>• (5) Privacy Policy corrected for fonts from google, the app does not reach out to google, the fonts are downloaded in the app assembly/building stage during development. <br>• (6) Added the Online Data Connections table near the top.|
-| August 15, 2026 | 3     | "App Update Checks" split into iOS/macOS (the existing hosted-manifest check, now also describing the on-demand "Check Now" option and the cache-busting timestamp added to each request) and Android (genuinely different mechanism: Google Play's own official In-App Updates SDK, not this app's own server). Added Play Core to the Third-Party Libraries list with an explicit callout that, unlike every other library listed there, it does communicate with an external server by design. Added a narrow, explicit exception to "Data Not Shared With Third Parties" covering both update-check paths. Added an Android-specific note to the Nutrition Label section for Google Play's own separate Data Safety form. Nutrition-label answers themselves unchanged (still None/None/None/None) - nothing above changes what this app itself collects, only what is now disclosed about Play's own SDK. Also corrected pre-existing typos in "Data Not Shared With Third Parties" unrelated to this change. |
-| -               | 3     | "PDF Viewing" retitled "PDF Viewing & Document/Key Export" and updated for a new explicit Share/Export action (document viewer + "Binary Keys" entries), using the device's own native share sheet - entirely on-device, one item at a time, only on explicit tap, temp copy zeroed and deleted immediately after regardless of outcome. Nutrition-label answers unchanged (still None/None/None/None) - this is an on-device action the person themselves initiates and directs, not new data collection or a new developer-facing transmission. Also corrected the Third-Party Libraries list, found stale while making this update: it still named google_fonts (removed entirely in an earlier Build 3 change - this list was never updated to match at the time) and file_picker (never actually a dependency - iOS uses a small custom native channel instead, specifically because that third-party package repeatedly broke the iOS build); added share_plus for the new export feature. |
+| August 15, 2026 | 3     | • "App Update Checks" split into iOS/macOS (the existing hosted-manifest check, now also describing the on-demand "Check Now" option and the cache-busting timestamp added to each request) and Android (genuinely different mechanism: Google Play's own official In-App Updates SDK, not this app's own server). <br>• Added Play Core to the Third-Party Libraries list with an explicit callout that, unlike every other library listed there, it does communicate with an external server by design. <br>• Added a narrow, explicit exception to "Data Not Shared With Third Parties" covering both update-check paths. <br>• Added an Android-specific note to the Nutrition Label section for Google Play's own separate Data Safety form. Nutrition-label answers themselves unchanged (still None/None/None/None) - nothing above changes what this app itself collects, only what is now disclosed about Play's own SDK. Also corrected pre-existing typos in "Data Not Shared With Third Parties" unrelated to this change.  <br>• "PDF Viewing" retitled "PDF Viewing & Document/Key Export" and updated for a new explicit Share/Export action (document viewer + "Binary Keys" entries), using the device's own native share sheet - entirely on-device, one item at a time, only on explicit tap, temp copy zeroed and deleted immediately after regardless of outcome. <br>• Nutrition-label answers unchanged (still None/None/None/None) - this is an on-device action the person themselves initiates and directs, not new data collection or a new developer-facing transmission. <br>• Also corrected the Third-Party Libraries list, found stale while making this update: it still named google_fonts (removed entirely in an earlier Build 3 change - this list was never updated to match at the time) and file_picker (never actually a dependency - iOS uses a small custom native channel instead, specifically because that third-party package repeatedly broke the iOS build); added share_plus for the new export feature. |
