@@ -1,11 +1,18 @@
 # Privacy Policy — Veteran Education Homeport (VetEduHP)
 
-**Effective date:** August 4, 2026
-**Last updated:** August 4, 2026
-**App name:** Veteran Education Homeport (VetEduHP)
-**Platform:** iOS and macOS (Apple App Store) · Android (Google Play Store)
-**Developer:** Azimos Labs, LLC — https://azimoslabs.com
-**Contact:** software_feedback_report@azimoslabs.com
+Developed by Azimos Labs, LLC
+Applies to: all versions and platforms (Flutter mobile/desktop)
+Last updated: August 14, 2026
+
+---
+
+## The Short Version
+
+Eldrfur Data Vault does not collect or harvest, transmit, sell, or share your personal data
+with anyone, including the developer. Your vault and everything in it stays on
+your device unless you explicitly choose to back it up or sync it to your cloud storage
+provider you already own and control.
+
 
 ---
 
@@ -14,6 +21,15 @@
 Veteran Education Homeport (VetEduHP) is a free utility application built for student veterans, active duty servicemembers, military-connected students, and their dependents at any supported university. It helps students track semester checklist tasks, estimate VA housing benefits, navigate their school with an interactive map and find veteran resources.
 
 This privacy policy describes how the app handles user information. The short version: **we collect two pieces of information, we store nothing on any server, and we share nothing with anyone.**
+
+---
+
+## The Short Version
+
+This app DOES NOT collect or harvest, transmit, sell, or share your personal data
+with anyone, including the developer. Your app and everything in it stays on
+your device unless you explicitly choose to back it up or sync it to your cloud storage
+provider you already own and control.
 
 ---
 
@@ -65,6 +81,15 @@ The app does not collect, access, or process any of the following:
 - Biometric data
 - Payment or financial information
 - Social network credentials
+
+## 1.6 Online Data Connections
+
+All versions of Veteran Education Homeport use one or more of the following connections:
+
+| Purpose            |Platform | Use                      | What and Where to                                                                                      |
+|--------------------|---------|--------------------------|--------------------------------------------------------------------------------------------------------|
+| App Update checking| iOS/Mac | optional, off by default | https encrypted file read connection to check what builds are available from Azimos Lab's web servers  |
+| App Update checking| Android | optional, off by default | communicates directly with Google Play to check for and download app updates                           |
 
 ---
 
@@ -157,19 +182,54 @@ Checklist tasks, deadlines, and BAH/MHA rate estimates shown in the app are prov
 
 ---
 
-## 11. Changes to This Policy
-
-If this policy changes materially, the updated version will be posted at the same location this policy is currently hosted, and the effective date above will be updated. Continued use of the app after a change constitutes acceptance of the revised policy.
-
----
-
-## 12. Contact
+## 11 Contact
 
 Questions about this privacy policy or the app's data practices:
 
-**Azimos Labs, LLC**
-https://azimoslabs.com
-software_feedback_report@azimoslabs.com
+software_support@azimoslabs.com
+
+---
+
+## 12 App Store and Google Play Privacy Nutrition Label Reference
+
+The following summarizes this policy in the format used by Apple App Store
+and Google Play Store privacy disclosure screens.
+
+**Data collected by this app:**  First Name, Last Name is optional, user's college email domain address.
+
+**Data linked to you:** First Name, Last Name is optional, user's college email domain address.
+
+**Data used to track you:** None.
+
+**Data not linked to you:** None.
+
+All data created in this app stays on the user's device or in cloud storage
+the user controls under their own account. The developer collects nothing,
+stores nothing server-side, and has no access to any user data.
+
+**Android-specific note for Google Play's own Data Safety form:** the
+"None" answers above describe what this app itself collects, which is
+still accurate on Android. Separately, Google Play's own In-App Updates
+SDK (used only if the optional update check is turned on - see "App
+Update Checks" above) is a Google-operated feature governed by Google
+Play's own privacy policy, not something this document can speak for -
+worth listing as a used SDK on Google Play's own disclosure form, even
+though it does not change what this app collects.
+
+---
+
+## 13. Changes to This Policy
+
+If this policy changes in a way that affects how currently released user data is handled, 
+outside of correcting a mistake in wording, the updated policy will be posted at this URL with a revised date. 
+Any change that reduces privacy protections will be called out explicitly in the change notice in a table to be created below.
+Continued use of the app after a change constitutes acceptance of the revised policy.
+
+## 13.1 Change Log
+| Date            | Build | Changes                                                                                                               |
+|-----------------|-------|-----------------------------------------------------------------------------------------------------------------------|
+| August 04, 2026 |Beta   | Initial privacy policy (Pre-Release - Beta Version)                                                                   |
+| August 14, 2026 |1      | Build 1 Release - Added change log table, added a feature for checking and alerting that a newer version is available |
 
 ---
 
