@@ -90,7 +90,7 @@ No backend server, database, cloud storage, or third-party data processor receiv
 
 ---
 
-## 3 Other Data Transmissions
+## 3. Other Data Transmissions
 
 The app makes outbound network connections only in the following circumstances, all of which are initiated explicitly by the user:
 
