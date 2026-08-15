@@ -1,8 +1,18 @@
 # Privacy Policy — Veteran Education Homeport (VetEduHP)
 
-Developed by Azimos Labs, LLC
 Applies to: all versions and platforms (Flutter mobile/desktop)
+
 Last updated: August 15, 2026
+
+Developed by Azimos Labs, LLC
+
+---
+
+## Overview
+
+Veteran Education Homeport (VetEduHP) is a free utility application built for student veterans, active duty servicemembers, military-connected students, and their dependents at any supported university. It helps students track semester checklist tasks, estimate VA housing benefits, navigate their school with an interactive map and find veteran resources.
+
+This privacy policy describes how the app handles user information. The short version: **we collect two pieces of information, we store nothing on any server, and we share nothing with anyone.**
 
 ---
 
@@ -15,14 +25,6 @@ your device unless you explicitly choose to.
 > [!NOTE] 
 > Not personal data related, but worth noting. 
 > The only uncontrollable data connection that the interactive map's "Background Map" downloads from OpenStreetMap tile servers (openstreetmap.org).
-
----
-
-## Overview
-
-Veteran Education Homeport (VetEduHP) is a free utility application built for student veterans, active duty servicemembers, military-connected students, and their dependents at any supported university. It helps students track semester checklist tasks, estimate VA housing benefits, navigate their school with an interactive map and find veteran resources.
-
-This privacy policy describes how the app handles user information. The short version: **we collect two pieces of information, we store nothing on any server, and we share nothing with anyone.**
 
 ---
 
