@@ -183,13 +183,13 @@ software_support@azimoslabs.com
 The following summarizes this policy in the format used by Apple App Store
 and Google Play Store privacy disclosure screens.
 
-**Data collected by this app:**  First Name, Last Name is optional, user's college email domain address.
+**Data collected by this app:**  None.
 
-**Data linked to you:** First Name, Last Name is optional, user's college email domain address.
+**Data linked to you:**  None.
 
-**Data used to track you:** None.
+**Data used to track you:**  None.
 
-**Data not linked to you:** None.
+**Data not linked to you:**  None.
 
 All data created in this app stays on the user's device or in cloud storage
 the user controls under their own account. The developer collects nothing,
