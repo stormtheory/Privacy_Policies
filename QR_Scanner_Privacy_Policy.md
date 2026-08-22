@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Eldrfur Data Vault**
+**Koorune QR/Barcode Scanner,Generator, and Library**
 
 Developed by Azimos Labs, LLC
 
