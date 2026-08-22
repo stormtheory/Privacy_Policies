@@ -1,13 +1,29 @@
 # Privacy Policy
 
-**Koorune, by Azimos Labs**
+**Eldrfur Data Vault**
 
-Last updated: [fill in before publishing]
+Developed by Azimos Labs, LLC
 
-This policy describes exactly what QR Pass Gen does and does not do with your data. Where
+Applies to: all versions and platforms (Flutter mobile)
+
+Last updated: August 23, 2026
+
+---
+
+## The Short Version
+Koorune does not collect or harvest, transmit, sell, or share your personal data
+with anyone, including the developer. Your app data and settings and everything in it stays on
+your device unless you explicitly choose to back it up or sync it to your cloud storage
+provider you already own and control.
+
+---
+
+This policy describes exactly what Koorune does and does not do with your data. Where
 something leaves your device, it is named specifically below, along with who it goes to and
 why. Nothing in this app is sold, and there are no advertisers, analytics vendors, or trackers
 anywhere in it.
+
+---
 
 ## The short version
 
@@ -18,6 +34,8 @@ anywhere in it.
 - A small number of features make network requests to check whether a link is safe. Exactly
   what those requests contain, and who they go to, is listed below, item by item.
 - The camera never sends anything anywhere. Scanning happens entirely on your device.
+
+---
 
 ## What is stored on your device
 
@@ -37,6 +55,28 @@ anywhere in it.
 
 None of the above is ever transmitted to us. We could not read it if we wanted to, we don't
 have a server it could be sent to.
+
+---
+
+## What the Developer Does NOT Collect
+
+All versions of Eldrfur Data Vault does NOT collect any of the following:
+
+- Analytics or usage data of any kind
+- Crash reports or diagnostic data sent anywhere
+- Advertising identifiers or advertising data
+- Device identifiers or hardware fingerprints
+- Contact information
+- Location data
+- Browsing history
+- In-app purchase history
+- User content
+- Telemetry of any kind
+
+There is no analytics SDK, crash reporting framework, advertising network, or
+telemetry library in either version of this app. The developer has no
+visibility into whether the app is installed, opened, or used by anyone,
+anywhere.
 
 ## iCloud sync (optional, off unless you turn it on)
 
@@ -86,6 +126,8 @@ None of these three sends your device identifier, your account information (ther
 account), your location, or anything about your other saved codes. Each one is scoped to
 exactly the one link being checked, at the moment you check it.
 
+---
+
 ## Report this link (entirely your choice, nothing sent automatically)
 
 If you use "Report this link" inside Safe Scan, the app puts together a plain text write-up:
@@ -96,12 +138,16 @@ choose where it goes: your own Mail app, Notes, Messages, AirDrop, wherever you 
 have a server that automatically receives these; there isn't one. If you choose to email it
 somewhere, that email goes exactly where you addressed it, same as any other email you send.
 
+---
+
 ## Update check (optional, off by default)
 
 If you turn this on, the app periodically checks a web address we control to see whether a
 newer version is available. This is a plain request, the same kind of request as loading a web
 page, with no account information, no device identifier, and nothing else about you attached to
 it. Off by default; asked once at first launch, changeable any time in Settings.
+
+---
 
 ## Camera and location
 
@@ -114,6 +160,8 @@ location permission to read a Wi-Fi network's name, even though no actual locati
 (coordinates, movement, or anything like it) is read, stored, or used. We do not track your
 location.
 
+---
+
 ## Backups
 
 If you create an encrypted backup file, it is protected with a password you choose (Argon2id
@@ -121,16 +169,23 @@ key derivation, AES-256-GCM encryption). That file is created entirely on your d
 do with it afterward, where you save it or send it, is entirely your choice, the same as any
 other file on your device.
 
-## Children's privacy
+---
 
-QR Pass Gen is not directed at children and does not knowingly collect information from
-children. Since the app collects no personal information on any server we operate, there is no
-account data to collect in the first place.
+## Children
 
-## Changes to this policy
+This app is not directed at children under the age of 13. The developer does
+not knowingly collect information from children or communicate with any users via the Koorune.
+This is an utility app and nothing more.
 
-If this policy changes in a way that matters, we'll update the date at the top and describe
-what changed. We will not quietly expand what leaves your device without saying so here first.
+---
+
+## Changes to This Policy
+
+If this policy changes in a way that affects how currently released user data is handled, 
+outside of correcting a mistake in wording, the updated policy will be posted at this URL with a revised date. 
+Any change that reduces privacy protections will be called out explicitly in the change notice in a table to be created below.
+
+---
 
 ## Contact
 
@@ -138,6 +193,19 @@ software_feedback_report@azimoslabs.com
 
 ---
 
-*A note for whoever is publishing this: replace the two bracketed placeholders above (the date
-and the contact address) before this goes live. Everything else in this document reflects what
-the app actually does, verified against its own source, not aspirational language.*
+## App Store and Google Play Privacy Nutrition Label Reference
+
+The following summarizes this policy in the format used by Apple App Store
+and Google Play Store privacy disclosure screens.
+
+**Data collected by this app:** None.
+
+**Data linked to you:** None.
+
+**Data used to track you:** None.
+
+**Data not linked to you:** None.
+
+All data created in this app stays on the user's device or in cloud storage
+the user controls under their own account. The developer collects nothing,
+stores nothing server-side, and has no access to any user data.
