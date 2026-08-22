@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**QR Pass Gen, by Azimos Labs**
+**Koorune, by Azimos Labs**
 
 Last updated: [fill in before publishing]
 
@@ -134,7 +134,7 @@ what changed. We will not quietly expand what leaves your device without saying 
 
 ## Contact
 
-[fill in a real contact address before publishing, e.g. privacy@azimoslabs.com]
+software_feedback_report@azimoslabs.com
 
 ---
 
