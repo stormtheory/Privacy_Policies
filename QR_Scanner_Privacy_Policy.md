@@ -78,6 +78,27 @@ telemetry library in either version of this app. The developer has no
 visibility into whether the app is installed, opened, or used by anyone,
 anywhere.
 
+---
+
+## Online Data Connections
+
+Every network connection this app makes, in one table. Detail on each one, exactly what is sent
+and why, follows further down this document.
+
+| Purpose                        | Platform | Use                      | What and Where to                                                                     |
+|--------------------------------|----------|--------------------------|---------------------------------------------------------------------------------------|
+| Cloud Sync                     | iOS      | optional, off by default | encrypted personal codes, to your own iCloud account (CloudKit), never to Azimos Labs |
+| App Update checking            | iOS      | optional, off by default | nothing beyond what a standard browser request includes, to Azimos Labs |
+| Safe Scan, redirect resolution | iOS      | Safe Scan is used | the link's own destination server(s), one HEAD request per hop, the same request opening the link yourself would make |
+| Safe Scan, malware and adult content check | iOS      | Safe Scan is used | the domain name only, to Cloudflare's public DNS resolvers (1.1.1.1, 1.1.1.2, 1.1.1.3) |
+| Safe Scan, certificate check               | iOS      | Safe Scan is used | a direct connection to the link's own destination server, to confirm its certificate, nothing downloaded |
+| Safe Scan, domain age check                | iOS      | Safe Scan is used | the domain name only, to rdap.org and the domain's own registry |
+| Safe Scan, hosting provider check          | iOS      | Safe Scan is used | the destination's IP address (already resolved for the malware check above, not a separate lookup), through Cloudflare's DNS resolver to Team Cymru |
+| Safe Scan, sandboxed preview               | iOS      | optional, only if chosen | a direct, ephemeral connection to the link's own destination server, nothing saved once closed |
+| Safe Scan, open the real destination       | iOS      | optional, only if chosen | hands off to Safari, the same as opening any link yourself |
+
+---
+
 ## iCloud sync (optional, off unless you turn it on)
 
 If you enable sync, your codes and folders are synced through your own iCloud account using
