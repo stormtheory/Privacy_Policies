@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Koorune QR/Barcode Scanner,Generator, and Library**
+**Koorune QR/Barcode Scanner, Generator, and Library**
 
 Developed by Azimos Labs, LLC
 
@@ -11,14 +11,16 @@ Last updated: August 23, 2026
 ---
 
 ## The Short Version
+
 Koorune does not collect or harvest, transmit, sell, or share your personal data
 with anyone, including the developer. Your app data and settings and everything in it stays on
-your device unless you explicitly choose to back it up or sync it to your cloud storage
+your device unless you explicitly choose to back it up or sync it to a cloud storage
 provider you already own and control.
 
 ---
 
 ## Overview
+
 This policy describes exactly what Koorune does and does not do with your data. Where
 something leaves your device, it is named specifically below, along with who it goes to and
 why. Nothing in this app is sold, and there are no advertisers, analytics vendors, or trackers
@@ -49,7 +51,7 @@ have a server it could be sent to.
 
 ## What the Developer Does NOT Collect
 
-All versions of Eldrfur Data Vault does NOT collect any of the following:
+Koorune does not collect any of the following:
 
 - Analytics or usage data of any kind
 - Crash reports or diagnostic data sent anywhere
@@ -63,7 +65,7 @@ All versions of Eldrfur Data Vault does NOT collect any of the following:
 - Telemetry of any kind
 
 There is no analytics SDK, crash reporting framework, advertising network, or
-telemetry library in either version of this app. The developer has no
+telemetry library in this app. The developer has no
 visibility into whether the app is installed, opened, or used by anyone,
 anywhere.
 
@@ -99,16 +101,17 @@ under your own Apple ID's control, the same as any other iCloud data.
 
 ## Apple Watch and home screen widget (on-device only)
 
-If you favourite a code, it becomes available on a paired Apple Watch and on a home screen
-widget. This happens entirely between your own devices, over WatchConnectivity and a shared
-App Group container, the same mechanism any app's Watch companion uses. None of this touches
-the internet or us at any point.
+If you favorite a code, it becomes available on a home screen widget. Adding a code to your
+Apple Watch is a separate toggle, not the same thing as favoriting it. Either way, this happens
+entirely between your own devices, over WatchConnectivity and a shared App Group container, the
+same mechanism any app's Watch companion uses. None of this touches the internet or us at any
+point.
 
-Worth knowing if you use App Lock: the widget shows a favourited code's actual image as soon
+Worth knowing if you use App Lock: the widget shows a favorited code's actual image as soon
 as your phone itself is unlocked, the same access anything else on your home screen already
 has, App Lock does not add a further gate on top of that. Your Apple Watch is different: it has
 its own passcode and only shows anything while unlocked on your own wrist, a real, separate
-layer that already exists independent of this app. Un-favourite anything you want kept out of
+layer that already exists independent of this app. Un-favorite anything you want kept out of
 the widget specifically.
 
 ## Safe Scan (checking a link before you open it)
@@ -194,16 +197,17 @@ other file on your device.
 ## Children
 
 This app is not directed at children under the age of 13. The developer does
-not knowingly collect information from children or communicate with any users via the Koorune.
-This is an utility app and nothing more.
+not knowingly collect information from children or communicate with any users via Koorune.
+This is a utility app and nothing more.
 
 ---
 
 ## Changes to This Policy
 
-If this policy changes in a way that affects how currently released user data is handled, 
-outside of correcting a mistake in wording, the updated policy will be posted at this URL with a revised date. 
-Any change that reduces privacy protections will be called out explicitly in the change notice in a table to be created below.
+If this policy changes in a way that affects how currently released user data is handled,
+outside of correcting a mistake in wording, the updated policy will be posted at this URL with a
+revised date. Any change that reduces privacy protections will be called out explicitly in the
+change notice in a table to be created below.
 
 ---
 
