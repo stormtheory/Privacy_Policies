@@ -104,6 +104,13 @@ widget. This happens entirely between your own devices, over WatchConnectivity a
 App Group container, the same mechanism any app's Watch companion uses. None of this touches
 the internet or us at any point.
 
+Worth knowing if you use App Lock: the widget shows a favourited code's actual image as soon
+as your phone itself is unlocked, the same access anything else on your home screen already
+has, App Lock does not add a further gate on top of that. Your Apple Watch is different: it has
+its own passcode and only shows anything while unlocked on your own wrist, a real, separate
+layer that already exists independent of this app. Un-favourite anything you want kept out of
+the widget specifically.
+
 ## Safe Scan (checking a link before you open it)
 
 Safe Scan runs a handful of checks on a web link before you decide whether to open it. Most of
@@ -112,7 +119,7 @@ a raw IP address instead of a name, whether it looks like a well known site with
 changed, whether it hides a redirect trick, and similar pattern checks. Those never leave your
 device.
 
-Three parts of Safe Scan do make a network request, and here is exactly what each one sends and
+Five parts of Safe Scan do make a network request, and here is exactly what each one sends and
 to whom:
 
 - **Redirect resolution**: to find out where a link actually leads, the app sends a request
@@ -131,12 +138,21 @@ to whom:
   presents a valid security certificate. This is a direct connection to that server, no third
   party involved, the same connection a browser makes as the first step of loading any secure
   site.
+- **Domain age check**: the domain name is looked up against RDAP, the open, standardized
+  registry lookup system every domain registry is required to provide (the modern successor to
+  WHOIS), to see when it was registered. This goes to whichever registry actually holds that
+  domain's registration, by way of a public directory service (rdap.org) that simply points the
+  request at the right one. No account, no key, the same kind of lookup anyone can already run
+  from a terminal.
+- **Hosting provider check**: the destination's IP address (already obtained from the Cloudflare
+  DNS check above, not a separate lookup) is checked against Team Cymru's public IP-to-network
+  lookup service, to identify which network or hosting provider it belongs to. This request is
+  sent through Cloudflare's own lookup service, the same one already described above, so it does
+  not add a new party beyond Cloudflare and Team Cymru itself.
 
-None of these three sends your device identifier, your account information (there is no
+None of these five sends your device identifier, your account information (there is no
 account), your location, or anything about your other saved codes. Each one is scoped to
 exactly the one link being checked, at the moment you check it.
-
----
 
 ## Report this link (entirely your choice, nothing sent automatically)
 
@@ -148,16 +164,12 @@ choose where it goes: your own Mail app, Notes, Messages, AirDrop, wherever you 
 have a server that automatically receives these; there isn't one. If you choose to email it
 somewhere, that email goes exactly where you addressed it, same as any other email you send.
 
----
-
 ## Update check (optional, off by default)
 
 If you turn this on, the app periodically checks a web address we control to see whether a
 newer version is available. This is a plain request, the same kind of request as loading a web
 page, with no account information, no device identifier, and nothing else about you attached to
 it. Off by default; asked once at first launch, changeable any time in Settings.
-
----
 
 ## Camera and location
 
@@ -169,8 +181,6 @@ currently connected to, so it can be turned into a Wi-Fi QR code for you to shar
 location permission to read a Wi-Fi network's name, even though no actual location data
 (coordinates, movement, or anything like it) is read, stored, or used. We do not track your
 location.
-
----
 
 ## Backups
 
