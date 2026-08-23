@@ -18,22 +18,11 @@ provider you already own and control.
 
 ---
 
+## Overview
 This policy describes exactly what Koorune does and does not do with your data. Where
 something leaves your device, it is named specifically below, along with who it goes to and
 why. Nothing in this app is sold, and there are no advertisers, analytics vendors, or trackers
 anywhere in it.
-
----
-
-## The short version
-
-- Everything you create or scan stays on your device, encrypted, unless you turn on iCloud
-  sync yourself, in which case it goes to your own iCloud account, not to us.
-- We do not run any servers that store your codes, your scans, or your identity. There is no
-  account to create, no sign-in, no user database.
-- A small number of features make network requests to check whether a link is safe. Exactly
-  what those requests contain, and who they go to, is listed below, item by item.
-- The camera never sends anything anywhere. Scanning happens entirely on your device.
 
 ---
 
